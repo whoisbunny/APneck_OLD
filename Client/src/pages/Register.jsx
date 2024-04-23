@@ -7,7 +7,7 @@ const Register = () => {
       <div className="container">
         <div className="flex flex-center justify-center">
           <div className="lg:w-1/3 md:w-1/2 sm:w-5/6">
-            <div className="card">
+            <div className="card rounded-xl">
               <div className="p-12">
                 <h2 className="text-center text-lg mb-3 text-primary">Sign Up</h2>
                 <p className="text-center mb-4 text-primary">

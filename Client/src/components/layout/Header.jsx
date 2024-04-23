@@ -57,7 +57,7 @@ const Header = () => {
                   </div>
                   <div className="ms-auto gap-3">
                   <NavLink
-                      to="/shop"
+                      to="/product"
                       className={
                         location.pathname === "/shop" ? "active" : "not-active"
                       }
