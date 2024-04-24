@@ -67,7 +67,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="col-md-2 col-lg-2 mx-16 ">
-              <h2 className="footer-title mb-3 border-b-[2px] border-b-darken w-[70%] mb-3 text-2xl">
+              <h2 className="footer-title mb-3 border-b-[2px] border-b-darken w-[70%] text-2xl">
                 <b>About</b>
               </h2>
               <div className="mb-3">
@@ -90,7 +90,7 @@ const Footer = () => {
               {/* <div className='mb-3'> <Link id='footer-links'>Fee Policy</Link>  </div> */}
             </div>
             <div className="col-md-2 col-lg-2 mx-16">
-              <h2 className="footer-title mb-3 border-b-[2px] border-b-darken w-[95%] mb-3 text-2xl">
+              <h2 className="footer-title mb-3 border-b-[2px] border-b-darken w-[95%] text-2xl">
                 <b>Account</b>
               </h2>
               {/* <div className='mb-3'> <Link to='/login' id='footer-links'>Profile</Link>  </div> */}
