@@ -10,6 +10,28 @@
   transition: 0.5s ease;
 }
 
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    border: 0;
+    border-top: 1px solid;
+    opacity: .25;
+}
+
 .card {
   position: relative;
   display: flex;
@@ -20,7 +42,7 @@
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.175);
-  border-radius: 0.375rem;
+  /* border-radius: 0.375rem; */
 }
 
 .form-control {
@@ -44,7 +66,7 @@ a {
     font-weight: 500;
     text-decoration: inherit;
     transition: 0.5s ease;
-    color: rgb(13, 110, 253);
+    /* color: rgb(13, 110, 253); */
 }
 
 a:hover {

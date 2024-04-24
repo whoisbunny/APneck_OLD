@@ -17,7 +17,7 @@ export default {
         color: 'orangered',
         search: '#FF6000',
         white:'#f1f1f1',
-
+        
       },
     },
   },

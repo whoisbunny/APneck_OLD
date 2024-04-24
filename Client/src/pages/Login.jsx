@@ -8,7 +8,7 @@ const Login = () => {
         <div className="container">
           <div className="flex flex-center justify-center">
             <div className="lg:w-1/3 md:w-1/2 sm:w-5/6">
-              <div className="card">
+              <div className="card rounded-lg">
                 <div className="p-12">
                   <h2 className="text-center text-lg mb-3 text-primary">
                     LOGIN

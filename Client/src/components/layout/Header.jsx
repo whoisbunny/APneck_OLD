@@ -1,96 +1,136 @@
-import React from 'react'
+import React, { useContext, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { CiMail } from "react-icons/ci";
+import { BiPhoneCall } from "react-icons/bi";
+import { BsSearch } from "react-icons/bs";
+import { VscAccount } from "react-icons/vsc";
+import { CgShoppingCart, CgProductHunt } from "react-icons/cg";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import logo from "/assets/images/apneck.png";
 
 const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+
+  const location = useLocation();
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
     <>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a
-            href="https://flowbite.com/"
-            className="flex items-center space-x-3 rtl:space-x-reverse"
-          >
-            <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-8"
-              alt="Flowbite Logo"
-            />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Flowbite
-            </span>
-          </a>
-          <button
-            data-collapse-toggle="navbar-default"
-            type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-default"
-            aria-expanded="false"
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
-          <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
+      <header className="bg-lighter">
+        <div className="min-w-87">
+          <div className="flex items-center m-0">
+            <div className="flex justify-center  md:w-1/6">
+              <Link to="/">
+                <img src={logo} alt="logo" className="max-w-24 h-12" />
+              </Link>
+            </div>
+            <div className="flex md:w-5/6 lg:w-5/6">
+              <div className="md:w-1/4 mx-auto">
+                <div className="hidden md:flex">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Find products ..."
+                    aria-label="Find products ..."
+                    aria-describedby="basic-addon2"
+                  />
+                  <button className="input-group-text " id="basic-addon2">
+                    search
+                  </button>
+                </div>
+              </div>
+              <div className="md:w-2/4 mx-auto">
+                <div className="mt-2 hidden md:flex lg:flex">
+                  <div className="ms-auto gap-3">
+                    <NavLink
+                      to="/"
+                      className={
+                        location.pathname === "/" ? "active" : "not-active"
+                      }
+                      onClick={toggleMenu}
+                    >
+                      HOME
+                    </NavLink>
+                  </div>
+                  <div className="ms-auto gap-3">
+                  <NavLink
+                      to="/product"
+                      className={
+                        location.pathname === "/shop" ? "active" : "not-active"
+                      }
+                      onClick={toggleMenu}
+                    >
+                      SHOP
+                    </NavLink>
+                  </div>
+                  <div className="ms-auto gap-3">
+                  <NavLink
+                      to="/blog"
+                      className={
+                        location.pathname === "/blog" ? "active" : "not-active"
+                      }
+                      onClick={toggleMenu}
+                    >
+                      BLOG
+                    </NavLink>
+                  </div>
+                  <div className="ms-auto gap-3">
+                  <NavLink
+                      to="/contact"
+                      className={
+                        location.pathname === "/contact"
+                          ? "active"
+                          : "not-active"
+                      }
+                      onClick={toggleMenu}
+                    >
+                      CONTACT
+                    </NavLink>
+                  </div>
+                  
+                </div>
+              </div>
+              <div className="md:w-1/6 mx-auto flex">
+                <div className="hidden md:flex">
+                <Link
+                        onClick={toggleMenu}
+                        to=""
+                        className="flex items-center text-color-nav mr-3"
+                      >
+                        <CgProductHunt className="mr-1 text-4xl " />
+                      </Link>
+
+                </div>
+                <div className="hidden md:flex">
+                <Link
+                        onClick={toggleMenu}
+                        to=""
+                        className="flex items-center text-color-nav mr-3"
+                      >
+                        <VscAccount className="mr-1 text-4xl " />
+                      </Link>
+
+                </div>
+                <div className="hidden md:flex">
+                <Link
+                        onClick={toggleMenu}
+                        to="cart"
+                        className="flex items-center text-color-nav mr-3"
+                      >
+                        <CgShoppingCart className="mr-1 text-4xl " />
+                      </Link>
+
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </nav>
+      </header>
     </>
   );
-}
+};
 
-export default Header
+export default Header;
