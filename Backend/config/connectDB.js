@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const connectDB = async () => {
   try {
     // MongoDB connection string
-    const uri = "mongodb://localhost:27017/ecommerce"; // Update with your MongoDB URI and database name
+    const uri = process.env.MONGODB_URI; // Update with your MongoDB URI and database name
+
 
     // Connect to MongoDB
     await mongoose.connect(uri, {
