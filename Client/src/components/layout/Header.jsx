@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import {  useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { CiMail } from "react-icons/ci";
-import { BiPhoneCall } from "react-icons/bi";
-import { BsSearch } from "react-icons/bs";
+// import { CiMail } from "react-icons/ci";
+// import { BiPhoneCall } from "react-icons/bi";
+// import { BsSearch } from "react-icons/bs";
 import { VscAccount } from "react-icons/vsc";
 import { CgShoppingCart, CgProductHunt } from "react-icons/cg";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+// import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import logo from "/assets/images/apneck.png";
 
 const Header = () => {
@@ -75,6 +75,17 @@ const Header = () => {
                       onClick={toggleMenu}
                     >
                       BLOG
+                    </NavLink>
+                  </div>
+                  <div className="ms-auto gap-3">
+                  <NavLink
+                      to="/about"
+                      className={
+                        location.pathname === "/about" ? "active" : "not-active"
+                      }
+                      onClick={toggleMenu}
+                    >
+                      ABOUT
                     </NavLink>
                   </div>
                   <div className="ms-auto gap-3">
