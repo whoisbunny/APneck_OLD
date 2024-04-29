@@ -18,6 +18,7 @@ exports.createProduct = async (req, res) => {
 exports.getAllProducts = async (req, res) => {
   try {
     const products = await PRODUCT.find();
+    console.log(products);
     res.json(products);
   } catch (error) {
     console.error(error);
