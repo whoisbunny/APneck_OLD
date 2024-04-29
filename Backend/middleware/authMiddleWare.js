@@ -34,7 +34,7 @@ const isAdmin = async (req, res, next) => {
     const id = req?.user?._id;
     const adminUser = await USER.findOne({ _id: id });
     
-    console.log(req.user?.isAdmin);
+
     if (adminUser?.isAdmin !== true) {
       throw new Error("You are not Administrator");
     } else {

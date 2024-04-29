@@ -10,7 +10,7 @@ export default {
         light: "rgba(133,198,218,255)",
         dark: "rgba(13,13,10,255)",
         darker: "rgba(234,157,90,255)",
-        lighter: "#cbd6cf",
+      lighter: "#cbd6cf",
         lighter1: "#c3dacc86",
         lighter2:'#e4f0e9da',
         darken: '#cca27e',
