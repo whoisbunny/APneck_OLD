@@ -1,8 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addProducts,
-  editProducts,
-  toggleAddModal,
+
   toggleEditModal,
 } from "../../app/features/product/productSlice";
 import { z } from "zod";
@@ -37,7 +35,7 @@ const EditProduct = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(acceptedFiles);
+    // console.log(acceptedFiles);
     console.log(data);
     data.category = "662964adfca94f3299ea5f7f";
 

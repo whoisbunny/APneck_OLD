@@ -4,7 +4,8 @@ const CART = require("../models/cart");
 exports.getCart = async (req, res) => {
   try {
     const userId = req.user._id; // Assuming you have authentication middleware to add user to req object
-    const cart = await CART.findOne({ userId }).populate(
+
+    const cart = await CART.find({ userId }).populate(
       "items.productId",
       "name price image"
     );

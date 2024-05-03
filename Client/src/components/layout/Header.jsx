@@ -106,19 +106,19 @@ const Header = () => {
               </div>
               <div className="md:w-1/6 mx-auto flex">
                 <div className="hidden md:flex">
-                <Link
+                {/* <Link
                         onClick={toggleMenu}
                         to=""
                         className="flex items-center text-color-nav mr-3"
                       >
                         <CgProductHunt className="mr-1 text-4xl " />
-                      </Link>
+                      </Link> */}
 
                 </div>
                 <div className="hidden md:flex">
                 <Link
                         onClick={toggleMenu}
-                        to=""
+                        to="/sign-in"
                         className="flex items-center text-color-nav mr-3"
                       >
                         <VscAccount className="mr-1 text-4xl " />

@@ -2,14 +2,19 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { registration } from "../../app/features/auth/authSlice";
 
 const schema = z.object({
   email: z.string().email(),
   password: z.string().min(6),
+  username: z.string().min(4),
 });
 
 const RegisterForm = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -17,13 +22,27 @@ const RegisterForm = () => {
   } = useForm({
     resolver: zodResolver(schema),
   });
-
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(registration(data))
+    setTimeout(() => {
+      navigate('/')
+    }, 1000);
+ 
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="mb-4">
+        <label className="mb-4">Enter Your username</label>
+        <input
+          {...register("username")}
+          className="form-control "
+          placeholder="enter username here ..."
+        />
+        {errors.username && (
+          <span className=" text-red-600">{errors.username.message}</span>
+        )}
+      </div>
       <div className="mb-4">
         <label className="mb-4">Enter Your Email address</label>
         <input

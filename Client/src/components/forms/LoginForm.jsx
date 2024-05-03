@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../app/features/auth/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const schema = z.object({
   email: z.string().email(),
@@ -10,6 +13,8 @@ const schema = z.object({
 });
 
 const LoginForm = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -19,7 +24,11 @@ const LoginForm = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(login(data))
+    setTimeout(() => {
+      navigate('/')
+    }, 1000);
+ 
   };
 
   return (
@@ -55,7 +64,7 @@ const LoginForm = () => {
       </div>
       <div className="flex justify-between items-center mb-4">
         <p className="m-0">Dont have an account?</p>
-        <Link to="/signup" className="text-sm hover:text-search">
+        <Link to="/sign-up" className="text-sm hover:text-search">
           Sign up
         </Link>
       </div>
