@@ -1,12 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "../../components/ui/Modal";
-import {
-  addProducts,
-  toggleAddModal,
-} from "../../app/features/product/productSlice";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { addcategory, getCategories, openAddModal } from "../../app/features/category/categorySlice";
 
 const schema = z.object({
   name: z.string(),
@@ -16,7 +13,7 @@ const schema = z.object({
 
 const AddCategory = () => {
   const dispatch = useDispatch();
-  const { openProductModal } = useSelector((state) => state.product);
+  const { addModal } = useSelector((state) => state.category);
 
   const {
     register,
@@ -29,26 +26,28 @@ const AddCategory = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    // dispatch(addProducts(formData));
+    dispatch(addcategory(data));
 
     setTimeout(() => {
       reset();
-      // dispatch(toggleAddModal(false));
-    }, 400);
+      dispatch(getCategories());
+      
+      dispatch(openAddModal(false));
+    }, 800);
   };
 
   return (
     <>
       <Modal
-        isOpen={openProductModal}
-        onClose={() => dispatch(toggleAddModal(false))}
+        isOpen={addModal}
+        onClose={() => dispatch(openAddModal(false))}
         className={"w-[50vw] px-8"}
-        title="Add Product"
+        title="Add Category"
       >
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
             <div className="m-2">
-              <label>Enter product name</label>
+              <label>Enter Category name</label>
             </div>
             <input
               {...register("name")}

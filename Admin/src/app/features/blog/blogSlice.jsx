@@ -78,7 +78,7 @@ export const blogSlice = createSlice({
       })
       .addCase(getBlogs.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.blogs = action.payload?.blogs;
+        state.blogs = action.payload;
         state.totalBlogs = action.payload?.totalblogs;
       })
       .addCase(getBlogs.rejected, (state, action) => {})

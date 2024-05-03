@@ -4,7 +4,10 @@ const CATEGORY = require("../models/category");
 exports.createCategory = async (req, res) => {
   try {
     const category = await CATEGORY.create(req.body);
-    res.status(201).json(category);
+    res.status(201).json({
+      category,
+      message: "Category created successfully",
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server Error" });
@@ -47,7 +50,7 @@ exports.updateCategoryById = async (req, res) => {
     if (!category) {
       return res.status(404).json({ message: "Category not found" });
     }
-    res.json(category);
+    res.json({ category, message: "Category updated successfully" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server Error" });

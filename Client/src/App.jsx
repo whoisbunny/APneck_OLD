@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/layout";
 import Home from "./pages/Home";
@@ -10,6 +10,7 @@ import Product from "./pages/Product";
 import ProductDetails from "./pages/ProductDetails";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
+        <Toaster />{" "}
     </>
   );
 };

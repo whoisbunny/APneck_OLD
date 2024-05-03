@@ -53,7 +53,7 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    handleLogout: (state, action) => {
+    handleLogout: (state) => {
       window.localStorage.removeItem("TOKEN");
       window.localStorage.removeItem("isAuth");
       window.localStorage.removeItem("expiryDate");

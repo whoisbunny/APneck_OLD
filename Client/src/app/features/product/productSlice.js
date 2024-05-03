@@ -40,7 +40,7 @@ export const productSlice = createSlice({
         state.isLoading = false;
         state.products = action.payload;
       })
-      .addCase(getProducts.rejected, (state, action) => {
+      .addCase(getProducts.rejected, (state) => {
         state.isLoading = false;
         // toast.error(action.payload?.response?.data?.message);
       })
@@ -55,7 +55,7 @@ export const productSlice = createSlice({
         state.isLoading = false;
         state.product = action.payload;
       })
-      .addCase(getProduct.rejected, (state, action) => {
+      .addCase(getProduct.rejected, (state) => {
         state.isLoading = false;
         // toast.error(action.payload?.response?.data?.message);
       });

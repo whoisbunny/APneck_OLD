@@ -39,11 +39,11 @@ const Login = async (req, res) => {
 const Signup = async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    const existingCount = await USER.find();
+    // const existingCount = await USER.find();
    
-    if (existingCount && existingCount?.length > 0) {
-      return res.status(404).json({ message: "You can not add Admin" });
-    }
+    // if (existingCount && existingCount?.length > 0) {
+    //   return res.status(404).json({ message: "You can not add Admin" });
+    // }
 
     const salt = await bcrypt.genSaltSync(10);
 
