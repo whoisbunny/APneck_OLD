@@ -13,6 +13,8 @@ import CategoryPostPage from "./pages/category";
 import UserPostPage from "./pages/user";
 import BlogPostPage from "./pages/blog";
 import { ToastContainer } from "react-toastify";
+import PublicRoute from "./utility/PublicRoute";
+import PrivateRoute from "./utility/PrivateRoute";
 
 const App = () => {
   return (
@@ -23,28 +25,35 @@ const App = () => {
           <Route
             path="/"
             element={
-              // <PublicRoute>
-              <Login />
-              // </PublicRoute>
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
             }
           />
           <Route
             path="/forgot-password"
             element={
-              // <PublicRoute>
-              <ForgotPassword />
-              // </PublicRoute>
+              <PublicRoute>
+                <ForgotPassword />
+              </PublicRoute>
             }
           />
           <Route
             path="/register"
             element={
-              // <PublicRoute>
-              <Register />
-              // </PublicRoute>
+              <PublicRoute>
+                <Register />
+              </PublicRoute>
             }
           />
-          <Route path="/admin" element={<MainLayout />}>
+          <Route
+            path="/admin"
+            element={
+              <PrivateRoute>
+                <MainLayout />
+              </PrivateRoute>
+            }
+          >
             <Route index element={<Dashbord />} />
             <Route path="product" element={<ProductPostPage />} />
             <Route path="category" element={<CategoryPostPage />} />
