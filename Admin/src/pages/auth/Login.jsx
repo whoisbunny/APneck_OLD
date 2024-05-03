@@ -1,6 +1,42 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import IMG from "/assets/image/logo-primary.svg";
+import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { login } from "../../app/features/auth/authSlice";
+
+const schema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+});
+
 const Login = () => {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
+    const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useForm({
+      resolver: zodResolver(schema),
+    });
+
+    const onSubmit = (data) => {
+      dispatch(login(data))
+
+    };
+
+    const { isAuth } = useSelector((state) => state.auth);
+    useEffect(() => {
+      if(isAuth) navigate('/admin')
+    }, [isAuth])
+    
+
+
+
   return (
     <>
       <div className="flex flex-col w-full ">
@@ -15,18 +51,24 @@ const Login = () => {
                   </Link>
                   <p className="mb-8">Please enter your user information.</p>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-4 flex flex-col">
                     <label className="mb-2 text-[#212b36] " htmlFor="username">
-                      Username or email
+                      Email Address
                     </label>
                     <input
-                      name="username"
+                      {...register("email")}
+                      name="email"
                       placeholder="Enter address here"
                       type="email"
                       id="username"
                       className="w-full px-4 py-2 font-[.9375rem] font-normal leading-6 text-[#637381] bg-[#fff] border border-[#c4cdd5] rounded-md   "
-                    ></input>
+                    />
+                    {errors.email && (
+                      <span className=" text-red-600">
+                        {errors.email.message}
+                      </span>
+                    )}
                   </div>
                   <div className="mb-4 flex flex-col">
                     <label className="mb-2 text-[#212b36] " htmlFor="password">
@@ -34,6 +76,7 @@ const Login = () => {
                     </label>
                     <input
                       name="password"
+                      {...register("password")}
                       placeholder="****************"
                       type="password"
                       id="password"

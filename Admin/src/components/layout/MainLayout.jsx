@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
@@ -6,10 +6,13 @@ import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
 } from "react-icons/io";
-import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import { menu } from "../../constant";
 import SwitchDark from "../SwitchDark";
+import { useDispatch, useSelector } from "react-redux";
+import dayjs from "dayjs";
+import { handleLogout } from "../../app/features/auth/authSlice";
 const MainLayout = () => {
   const [Open, setOpen] = useState(true);
   const [OpenSub, setOpenSub] = useState(true);
@@ -26,6 +29,32 @@ const MainLayout = () => {
     setOpenSub(!OpenSub);
   };
 
+
+
+
+  const navigate = useNavigate();
+  const { isAuth, expiryDate } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const currentDate = dayjs();
+    const targetDate = dayjs(expiryDate);
+    if (!currentDate.isBefore(targetDate) || currentDate.isAfter(targetDate)) {
+      dispatch(handleLogout());
+      setTimeout(() => {
+        navigate("/");
+      }, 2500);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isAuth && !expiryDate) {
+      navigate("/");
+    }
+  }, [isAuth, navigate]);
+
+
+
+
   return (
     <>
       <header className={` flex  justify-end  `}>
@@ -36,7 +65,7 @@ const MainLayout = () => {
         >
           <button
             type="button"
-            className="inline-flex items-center bg-gray-800 border-0 py-2  px-3 focus:outline-none hover:bg-gray-700 rounded text-lg  md:mt-0 z-50 "
+            className="inline-flex items-center bg-gray-800 border-0 py-2  px-3 focus:outline-none hover:bg-gray-700 rounded text-lg  md:mt-0 z-25 "
             onClick={handleToggle}
           >
             {Open ? (

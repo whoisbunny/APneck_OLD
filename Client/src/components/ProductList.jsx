@@ -23,7 +23,7 @@ const ProductList = () => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {products.map((product) => {
+        {products?.map((product) => {
           return (
             <>
               <div className="mb-6 p-4  rounded-md">

@@ -5,7 +5,6 @@ import { handleDarkMode } from "../app/features/layoutSlice";
 const useDarkmode = () => {
   const dispatch = useDispatch();
   const isDark = useSelector((state) => state.layout.darkMode);
-  //   const isDark = false
 
   // ** Return a wrapped version of useState's setter function
   const setDarkMode = (mode) => {

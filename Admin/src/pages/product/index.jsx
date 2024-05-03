@@ -3,6 +3,7 @@ import { getProducts, toggleAddModal } from "../../app/features/product/productS
 import { useDispatch, useSelector } from "react-redux";
 import ProductList from "./ProductList";
 import AddProduct from "./AddProduct";
+import EditProduct from "./EditProduct";
 // import ReactTable from "react-table";
 const ProductPostPage = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const ProductPostPage = () => {
         </div>
         <ProductList products={products} />
       <AddProduct/>
+      <EditProduct/>
       </div>
     </>
   );

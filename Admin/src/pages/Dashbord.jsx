@@ -2,7 +2,7 @@ import { MdSpaceDashboard } from "react-icons/md";
 const Dashbord = () => {
   return (
     <>
-      <div>
+      <div className="dark:text-slate-900">
         <div className=" pt-10 pb-[9.5rem]   bg-[#624bff]"></div>
         <div className="px-8 -mt-40 w-full">
           <div className="row ">

@@ -1,16 +1,26 @@
 const PRODUCT = require("../models/product");
-
+const fs = require("fs");
+const path = require("path");
+const { removeImage } = require("../utils/removeFile");
 // Controller to create a new product
 exports.createProduct = async (req, res) => {
   try {
-    req.body.image =
-      req.protocol + "://" + req.get("host") + "/products/" + req.file.filename;
+    if (req.file) {
+      req.body.image =
+        req.protocol +
+        "://" +
+        req.get("host") +
+        "/products/" +
+        req.file.filename;
+    } else {
+      throw new Error("please provide a file");
+    }
 
     const product = await PRODUCT.create(req.body);
-    res.status(201).json(product);
+    res.status(200).json({ product, message: "Product created successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -18,7 +28,7 @@ exports.createProduct = async (req, res) => {
 exports.getAllProducts = async (req, res) => {
   try {
     const products = await PRODUCT.find();
-    console.log(products);
+
     res.json(products);
   } catch (error) {
     console.error(error);
@@ -43,8 +53,22 @@ exports.getProductById = async (req, res) => {
 // Controller to update product by ID
 exports.updateProductById = async (req, res) => {
   try {
-    req.body.image =
-      req.protocol + "://" + req.get("host") + "/products/" + req.file.filename;
+    let findProduct = await PRODUCT.findById(req.params.productId);
+
+    if (req.file) {
+      req.body.image =
+        req.protocol +
+        "://" +
+        req.get("host") +
+        "/products/" +
+        req.file.filename;
+
+      const imagename = findProduct.image.split("/products/")[1];
+      await removeImage(imagename, "products");
+    } else {
+      req.body.image = findProduct.image;
+    }
+
     const product = await PRODUCT.findByIdAndUpdate(
       req.params.productId,
       req.body,
@@ -63,6 +87,11 @@ exports.updateProductById = async (req, res) => {
 // Controller to delete product by ID
 exports.deleteProductById = async (req, res) => {
   try {
+    const deleteItem = await PRODUCT.findById(req.params.productId);
+
+    const imagename = deleteItem.image.split("/products/")[1];
+    await removeImage(imagename, "products");
+
     const product = await PRODUCT.findByIdAndDelete(req.params.productId);
     if (!product) {
       return res.status(404).json({ message: "Product not found" });
@@ -70,6 +99,6 @@ exports.deleteProductById = async (req, res) => {
     res.json({ message: "Product deleted successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({ message: error.message });
   }
 };
