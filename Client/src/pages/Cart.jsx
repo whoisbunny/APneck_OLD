@@ -14,14 +14,12 @@ const Cart = () => {
     dispatch(getCart());
   }, []);
 
-
-
-  const {cart} = useSelector((state)=>state.cart)
+  const { cart } = useSelector((state) => state.cart);
   return (
     <>
       <section className="cart bg-lighter1">
-        <div className="container mx-auto xl:px-5 py-5">
-          <div className="row">
+        <div className="container mx-auto xl:px-5 py-5 ">
+          <div className="row px-24 text-primary ">
             <div className="p-2 text-center">
               <h2>Cart</h2>
             </div>
@@ -32,36 +30,34 @@ const Cart = () => {
               <h5>Details</h5>
             </div>
 
-
-
-{cart?.map((el)=>{
-  return (<>
-
-  {
-    el?.items.map((e)=>{
-      return(<>
-      
-      
-      <CartItem id={e?.productId?._id} name={e?.productId?.name}price={e?.productId?.price} image={e?.productId?.image}/>
-      </>)
-    })
-  }
-  
-  
-  
-  </>)
-})}
+            {cart?.map((el) => {
+              return (
+                <>
+                  {el?.items.map((e) => {
+                    return (
+                      <>
+                        <div className="p-12 w-full ">
+                          <CartItem
+                            id={e?.productId?._id}
+                            name={e?.productId?.name}
+                            price={e?.productId?.price}
+                            image={e?.productId?.image}
+                          />
+                        </div>
+                      </>
+                    );
+                  })}
+                </>
+              );
+            })}
 
             <div className="p-3">
-
               <div className="w-full p-2 text-right">
                 <button onClick="submit" id="clear-cart">
                   {" "}
                   Clear Cart{" "}
                 </button>
               </div>
-
-
 
               <hr />
               <div className="row">

@@ -14,12 +14,12 @@ const CartItem = (props) => {
     const itemsInStock = id === 0 ? Math.ceil((id + 2.5) * 102 / 2) : Math.ceil((id * 102.5) / 2);
 
     return (
-        <div className="container card my-3">
+        <div className="container card my-3 rounded-xl h-80">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="col-span-1 md:col-span-1">
-                    <div className="p-3">
-                        <div className="cart-item-image mx-auto">
-                            <img src={image} className="card-img-top img-fluid" alt="..." />
+                    <div className="p-3 ">
+                        <div className="cart-item-image flex justify-center items-center w-full mx-auto">
+                            <img src={image} className="card-img-top img-fluid h-32 w-32 " alt="..." />
                         </div>
                     </div>
                 </div>

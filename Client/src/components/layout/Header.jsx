@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 // import { CiMail } from "react-icons/ci";
 // import { BiPhoneCall } from "react-icons/bi";
@@ -10,7 +10,6 @@ import logo from "/assets/images/apneck.png";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-
 
   const location = useLocation();
   const toggleMenu = () => {
@@ -56,7 +55,7 @@ const Header = () => {
                     </NavLink>
                   </div>
                   <div className="ms-auto gap-3">
-                  <NavLink
+                    <NavLink
                       to="/product"
                       className={
                         location.pathname === "/shop" ? "active" : "not-active"
@@ -67,7 +66,7 @@ const Header = () => {
                     </NavLink>
                   </div>
                   <div className="ms-auto gap-3">
-                  <NavLink
+                    <NavLink
                       to="/blog"
                       className={
                         location.pathname === "/blog" ? "active" : "not-active"
@@ -78,7 +77,7 @@ const Header = () => {
                     </NavLink>
                   </div>
                   <div className="ms-auto gap-3">
-                  <NavLink
+                    <NavLink
                       to="/about"
                       className={
                         location.pathname === "/about" ? "active" : "not-active"
@@ -89,7 +88,7 @@ const Header = () => {
                     </NavLink>
                   </div>
                   <div className="ms-auto gap-3">
-                  <NavLink
+                    <NavLink
                       to="/contact"
                       className={
                         location.pathname === "/contact"
@@ -101,39 +100,35 @@ const Header = () => {
                       CONTACT
                     </NavLink>
                   </div>
-                  
                 </div>
               </div>
               <div className="md:w-1/6 mx-auto flex">
                 <div className="hidden md:flex">
-                {/* <Link
+                  {/* <Link
                         onClick={toggleMenu}
                         to=""
                         className="flex items-center text-color-nav mr-3"
                       >
                         <CgProductHunt className="mr-1 text-4xl " />
                       </Link> */}
-
                 </div>
                 <div className="hidden md:flex">
-                <Link
-                        onClick={toggleMenu}
-                        to="/sign-in"
-                        className="flex items-center text-color-nav mr-3"
-                      >
-                        <VscAccount className="mr-1 text-4xl " />
-                      </Link>
-
+                  <Link
+                    onClick={toggleMenu}
+                    to="/sign-in"
+                    className="flex items-center text-color-nav mr-3"
+                  >
+                    <VscAccount className="mr-1 text-4xl " />
+                  </Link>
                 </div>
                 <div className="hidden md:flex">
-                <Link
-                        onClick={toggleMenu}
-                        to="cart"
-                        className="flex items-center text-color-nav mr-3"
-                      >
-                        <CgShoppingCart className="mr-1 text-4xl " />
-                      </Link>
-
+                  <Link
+                    onClick={toggleMenu}
+                    to="cart"
+                    className="flex items-center text-color-nav mr-3"
+                  >
+                    <CgShoppingCart className="mr-1 text-4xl " />
+                  </Link>
                 </div>
               </div>
             </div>

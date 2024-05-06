@@ -63,143 +63,100 @@ const About = () => {
 </section> */}
 
 
-  <section className="abouts p-5">
-    <div className="container-xxl">
-      <div className="row">
-        <div className="col-12 d-flex flex-column align-items-center">
-          <h1 className='mb-3'>What our customers say...</h1>
-          <p className='mb-4'>Our customers never miss a bit on providing feedback</p>
-        </div>
-        <div className="col-12 col-md-6 p-3">
-          <div className="card mb-3">
-          <div className="row g-0">
-            <div className="col-md-4">
-              <img src={blog1} className="img-fluid rounded-start" alt="..." />
+<section className="abouts p-5">
+  <div className="container mx-auto">
+    <div className="grid grid-cols-1 p-4 gap-6">
+      <div className="flex flex-col items-center">
+        <h1 className='mb-3 text-center text-search text-4xl font-bold'>What our customers say...</h1>
+        <p className='mb-4 text-center'>Our customers never miss a bit on providing feedback</p>
+      </div>
+
+      <div className="col-12 col-md-6 p-3 ">
+        <div className="bg-white shadow-md rounded-md p-4">
+          <div className="flex flex-row items-center">
+            <img src={blog1} className="w-24 h-24 rounded-md" alt="..." />
+            <div className="ml-4">
+              <h5 className="text-lg font-bold">Marvel Clein</h5>
+              <p className="text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit <br />. Doloribus maxime consequatur, ipsam architecto incidunt volup <br />tate! Iste ipsa numquam quos nam quibusdam perferendis excepturi rem, a quo laudantium libero dolore nisi.</p>
+              <p className="text-xs text-gray-500">Last updated 3 mins ago</p>
             </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <h5 className="card-title">Marvel Clein</h5>
-                <p className="card-text mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit <br />. Doloribus maxime consequatur, ipsam architecto incidunt volup <br />tate! Iste ipsa numquam quos nam quibusdam perferendis excepturi rem, a quo laudantium libero dolore nisi.</p>
-                <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
-              </div>
-              </div>
-           
-             </div>
           </div>
         </div>
-        <div className="col-12 col-md-6 p-3">
-              <div className="card mb-3">
-                <div className="row g-0">
-                  <div className="col-md-4">
-                    <img src={blog2} alt="" className='img-fluid rounded-start' />
-                  </div>
-                  <div className="col-md-8">
-                    <div className="card-body">
-                      <h5 className="card-title">Melisa Ivy</h5>
-                      <p className="card-text mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit <br />. Doloribus maxime consequatur, ipsam architecto incidunt volup <br />tate! Iste ipsa numquam quos nam quibusdam perferendis excepturi rem, a quo laudantium libero dolore nisi.</p>
-                      <p className="card-text"><small className="text-body-secondary">Last Updated now</small></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-12 col-md-6 p-3">
-              <div className="card mb-3">
-                <div className="row g-0">
-                  <div className="col-md-4">
-                    <img src={blog3} alt="" className='img-fluid rounded-start' />
-                  </div>
-                  <div className="col-md-8">
-                    <div className="card-body">
-                      <h5 className="card-title">Tristian Ann</h5>
-                      <p className="card-text mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit <br />. Doloribus maxime consequatur, ipsam architecto incidunt volup <br />tate! Iste ipsa numquam quos nam quibusdam perferendis excepturi rem, a quo laudantium libero dolore nisi.</p>
-                      <p className="card-text"><small className="text-body-secondary">Last Updated now</small></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-12 col-md-6 p-3">
-              <div className="card mb-3">
-                <div className="row g-0">
-                  <div className="col-md-4">
-                    <img src={blog4} alt="" className='img-fluid rounded-start' />
-                  </div>
-                  <div className="col-md-8">
-                    <div className="card-body">
-                      <h5 className="card-title">Phillip Omosh</h5>
-                      <p className="card-text mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit <br />. Doloribus maxime consequatur, ipsam architecto incidunt volup <br />tate! Iste ipsa numquam quos nam quibusdam perferendis excepturi rem, a quo laudantium libero dolore nisi.</p>
-                      <p className="card-text"><small className="text-body-secondary">Last Updated now</small></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-6 p-3">
-              <div className="card mb-3">
-                <div className="row g-0">
-                  <div className="col-md-4">
-                    <img src={blog2} alt="" className='img-fluid rounded-start' />
-                  </div>
-                  <div className="col-md-8">
-                    <div className="card-body">
-                      <h5 className="card-title">Melisa Ivy</h5>
-                      <p className="card-text mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit <br />. Doloribus maxime consequatur, ipsam architecto incidunt volup <br />tate! Iste ipsa numquam quos nam quibusdam perferendis excepturi rem, a quo laudantium libero dolore nisi.</p>
-                      <p className="card-text"><small className="text-body-secondary">Last Updated now</small></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-12 col-md-6 p-3">
-              <div className="card mb-3">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img src={blog1} className="img-fluid rounded-start" alt="..." />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">Marvel Clein</h5>
-                    <p className="card-text mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit <br />. Doloribus maxime consequatur, ipsam architecto incidunt volup <br />tate! Iste ipsa numquam quos nam quibusdam perferendis excepturi rem, a quo laudantium libero dolore nisi.</p>
-                    <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
-                  </div>
-                  </div>
-              
-                </div>
-              </div>
-            </div>
-            
-            <div className="col-12 p-3">
-            {/* <Marquee className='p-2 slide'> */}
-              <div>
-              <img src={orders} alt="" className='img-fluid'/>
-              <p className="card-text mb-2">Fast Orders</p>
-              </div>
-              <div>
-              <img src={orders1} alt="" className='img-fluid'/>
-              <p className="card-text mb-2">Quick Shipping</p>
-
-              </div>
-              <div>
-              <img src={orders2} alt="" className='img-fluid'/>
-              <p className="card-text mb-2">High Saves</p>
-              </div>
-              <div>
-              <img src={orders3} alt="" className='img-fluid'/>
-              <p className="card-text">24/7 Support</p>
-              </div>
-              <div>
-              <img src={orders4} alt="" className='img-fluid'/>
-              <p className="card-text">Online Orders</p>
-              </div>
-            {/* </Marquee> */}
-            </div>
       </div>
+
+
+      <div className="col-12 col-md-6 p-3">
+        <div className="bg-white shadow-md rounded-md p-4">
+          <div className="flex flex-row items-center">
+            <img src={blog2} className="w-24 h-24 rounded-md" alt="..." />
+            <div className="ml-4">
+              <h5 className="text-lg font-bold">Marvel Clein</h5>
+              <p className="text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit <br />. Doloribus maxime consequatur, ipsam architecto incidunt volup <br />tate! Iste ipsa numquam quos nam quibusdam perferendis excepturi rem, a quo laudantium libero dolore nisi.</p>
+              <p className="text-xs text-gray-500">Last updated 3 mins ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="col-12 col-md-6 p-3">
+        <div className="bg-white shadow-md rounded-md p-4">
+          <div className="flex flex-row items-center">
+            <img src={blog3} className="w-24 h-24 rounded-md" alt="..." />
+            <div className="ml-4">
+              <h5 className="text-lg font-bold">Marvel Clein</h5>
+              <p className="text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit <br />. Doloribus maxime consequatur, ipsam architecto incidunt volup <br />tate! Iste ipsa numquam quos nam quibusdam perferendis excepturi rem, a quo laudantium libero dolore nisi.</p>
+              <p className="text-xs text-gray-500">Last updated 3 mins ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="col-12 col-md-6 p-3">
+        <div className="bg-white shadow-md rounded-md p-4">
+          <div className="flex flex-row items-center">
+            <img src={blog4} className="w-24 h-24 rounded-md" alt="..." />
+            <div className="ml-4">
+              <h5 className="text-lg font-bold">Marvel Clein</h5>
+              <p className="text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit <br />. Doloribus maxime consequatur, ipsam architecto incidunt volup <br />tate! Iste ipsa numquam quos nam quibusdam perferendis excepturi rem, a quo laudantium libero dolore nisi.</p>
+              <p className="text-xs text-gray-500">Last updated 3 mins ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {/* Other testimonials follow the same structure */}
+      {/* Ensure to replace placeholders like blog1, blog2, etc., with actual image URLs */}
     </div>
-  </section>
+
+    <div className="grid grid-cols-2 md:grid-cols-5 gap-6 p-3">
+      <div className="flex flex-col items-center">
+        <img src={orders} alt="" className='w-24 h-24 mb-2'/>
+        <p className="text-xs text-center">Fast Orders</p>
+      </div>
+
+      <div className="flex flex-col items-center">
+        <img src={orders2} alt="" className='w-24 h-24 mb-2'/>
+        <p className="text-xs text-center">Fast Orders</p>
+      </div>
+
+      <div className="flex flex-col items-center">
+        <img src={orders3} alt="" className='w-24 h-24 mb-2'/>
+        <p className="text-xs text-center">Fast Orders</p>
+      </div>
+      
+      <div className="flex flex-col items-center">
+        <img src={orders4} alt="" className='w-24 h-24 mb-2'/>
+        <p className="text-xs text-center">Fast Orders</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
   </>;
 }
 
