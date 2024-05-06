@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { PRODUCTS, PRODUCTS1 } from "../components/ProductDummy";
+import  { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart } from "../app/features/cart/cartSlice";
@@ -7,7 +6,6 @@ import CartItem from "../components/CartItem";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(false);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -33,23 +31,19 @@ const Cart = () => {
             {cart?.map((el) => {
               return (
                 <>
-                  {el?.items.map((e) => {
-                    return (
-                      <>
+
+                    
                         <div className="p-12 w-full ">
-                          <CartItem
-                            id={e?.productId?._id}
-                            name={e?.productId?.name}
-                            price={e?.productId?.price}
-                            image={e?.productId?.image}
-                          />
+                        <CartItem
+                    id={el._id}
+                    name={el?.productId?.name}
+                    price={el?.productId?.price}
+                    image={el?.productId?.image}
+                  />
                         </div>
-                      </>
-                    );
-                  })}
-                </>
-              );
-            })}
+                      
+                    </>
+              )})}
 
             <div className="p-3">
               <div className="w-full p-2 text-right">
@@ -63,7 +57,7 @@ const Cart = () => {
               <div className="row">
                 <div className="col-12 col-md-6 d-flex m-auto justify-content-center mt-4">
                   <button onClick={() => navigate("/product")}>
-                    {isMobile ? "Continue" : "Continue Shopping"}
+                    {"Continue"}
                   </button>
                 </div>
 
@@ -84,7 +78,7 @@ const Cart = () => {
                         onClick={() => navigate("/checkout")}
                         className="mt-5"
                       >
-                        {isMobile ? "Check Out" : "Proceed to Checkout"}
+                        { "Proceed to Checkout"}
                       </button>
                     </div>
                   </div>

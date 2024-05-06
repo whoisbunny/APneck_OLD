@@ -256,7 +256,7 @@ const MainLayout = () => {
         } float-end duration-300 transition-all bg-slate-100 dark:text-gray-200   overlay dark:bg-slate-900   inset-0 z-[999]
 `}
       >
-        <div className="mb-12 ">
+        <div className="mb-12 min-h-screen">
           <Outlet />
         </div>
         <div

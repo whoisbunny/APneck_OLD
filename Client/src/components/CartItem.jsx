@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
-import React, { useContext} from 'react';
-import { RiDeleteBack2Line } from 'react-icons/ri';
-import { useDispatch } from 'react-redux';
-import { deleteCart } from '../app/features/cart/cartSlice';
+import React, { useContext } from "react";
+import { RiDeleteBack2Line } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { deleteCart, getCart } from "../app/features/cart/cartSlice";
 
 const CartItem = (props) => {
-
+  
 
     const dispatch = useDispatch()
     const { id, name, price, image } = props;
@@ -36,17 +36,26 @@ const CartItem = (props) => {
                             {/* <input className='text-danger fs-4 form-control' value={cartItems[id]} onChange={(e) => updateCartItemCount(Number(e.target.value), id)} /> */}
                             <button className="btn btn-outline-secondary" onClick={() => dispatch(deleteCart(id))}>-</button>
                         </div>
-                        <button className="btn btn-outline-danger" onClick={() =>dispatch(deleteCart(id))}>
-                            <RiDeleteBack2Line />
-                        </button>
+                        <button
+              className="btn btn-outline-danger"
+              onClick={() => {
+                dispatch(deleteCart(id));
+                setTimeout(() => {
+                  dispatch(getCart());
+                }, 800);
+              }}
+            >
+              <RiDeleteBack2Line />
+            </button>
                     </div>
                     <div className="p-3">
                         <input type="text" className="form-control" id="coupon" placeholder="Enter coupon code..." />
                     </div>
                 </div>
             </div>
-        </div>
-    );
-}
+          </div>
+        // </div>
+          );
+};
 
 export default CartItem;

@@ -6,7 +6,7 @@ import cartService from "./cartService";
 
 export const getCart = createAsyncThunk(
   "cart/get-cart",
-  async (data, thunkAPI) => {
+  async ( thunkAPI) => {
     try {
       return await cartService.getCart();
     } catch (error) {
@@ -38,7 +38,9 @@ export const deleteCart = createAsyncThunk(
 export const addCart = createAsyncThunk(
   "cart/add-cart",
   async (data, thunkAPI) => {
+
     try {
+      console.log(data);
       return await cartService.addCart(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -62,9 +64,9 @@ export const cartSlice = createSlice({
       })
       .addCase(getCart.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.cart = action.payload;
-        // state.totalCartProducts = action.payload?.totalCartProducts;
-        // state.cartTotal = action.payload?.cartTotal;
+        state.cart = action.payload?.cartItems;
+        state.totalCartProducts = action.payload?.totalCartProducts;
+        state.cartTotal = action.payload?.cartTotal;
       })
       .addCase(getCart.rejected, (state, action) => {
         state.isLoading = false;

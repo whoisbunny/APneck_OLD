@@ -14,9 +14,9 @@ exports.createBlog = async (req, res) => {
     const newBlog = await Blog.create(req.body);
     res.status(201).json({
       status: "success",
-      data: {
-        blog: newBlog,
-      },
+      message: "Blog created successfully",
+
+      blog: newBlog,
     });
   } catch (err) {
     res.status(400).json({
@@ -123,6 +123,7 @@ exports.deleteBlog = async (req, res) => {
     }
     res.status(204).json({
       status: "success",
+      message: "Blog is successfully deleted",
       data: null,
     });
   } catch (err) {
