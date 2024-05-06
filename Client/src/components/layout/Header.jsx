@@ -4,9 +4,10 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 // import { BiPhoneCall } from "react-icons/bi";
 // import { BsSearch } from "react-icons/bs";
 import { VscAccount } from "react-icons/vsc";
-import { CgShoppingCart, CgProductHunt } from "react-icons/cg";
+import { CgShoppingCart } from "react-icons/cg";
 // import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import logo from "/assets/images/apneck.png";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -16,9 +17,12 @@ const Header = () => {
     setShowMenu(!showMenu);
   };
 
+  const {totalCartProducts} = useSelector((state)=>state.cart)
+ 
+
   return (
     <>
-      <header className="bg-lighter">
+      <header className="bg-lighter sticky top-0 z-50">
         <div className="min-w-87">
           <div className="flex items-center m-0">
             <div className="flex justify-center  md:w-1/6">
@@ -128,6 +132,13 @@ const Header = () => {
                     className="flex items-center text-color-nav mr-3"
                   >
                     <CgShoppingCart className="mr-1 text-4xl " />
+                    <div>
+                          <p className="relative flex w-full justify-center items-center">
+                            {/* <b> */}
+                              <span className="absolute  bg-transparent right-4 ">{totalCartProducts? totalCartProducts:0}</span>
+                            {/* </b> */}
+                          </p>
+                        </div>
                   </Link>
                 </div>
               </div>

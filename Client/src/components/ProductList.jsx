@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../app/features/product/productSlice";
-import { addCart } from "../app/features/cart/cartSlice";
+import { addCart, getCart } from "../app/features/cart/cartSlice";
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -42,13 +42,21 @@ const ProductList = () => {
                     </Link>
                     <div className="flex items-center mb-4">
                       <button
-                        onClick={() =>
-                          dispatch(addCart({
-                            productId: product?._id,
-                            quantity: 1,
-                            price: product.price,
-                          })
-                        )
+                        onClick={() =>{
+                          dispatch(
+                            addCart({
+                              productId: product?._id,
+                              quantity: 1,
+                              price: product.price,
+                            })
+
+
+                          )
+                          setTimeout(() => {
+                            dispatch(getCart())
+                          }, 500)
+                        }
+
                         }
                         className="bg-primary2 text-white px-2 py-3 rounded-xl border m-auto  "
                       >

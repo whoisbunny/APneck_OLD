@@ -12,7 +12,7 @@ const Checkout = () => {
 <section className="checkout p-24">
   <div className="container-xxl">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="col-md-6">
+      {/* <div className="col-md-6">
         <h1 className="mb-4 text-3xl font-bold text-search">Payment Method</h1>
         <div className="accordion" id="accordionExample">
           <div className="card">
@@ -75,7 +75,27 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+<div className="flex gap-12 p-4">
+                <div className="w-1/2 md:w-1/3 lg:w-1/4">
+                  <img
+                    src='../../public/assets/images/blog/b1.jpg'
+                    alt=""
+                    className="object-cover w-16 rounded-tl-lg rounded-bl-lg"
+                  />
+                </div>
+                <div className="w-1/2 md:w-2/3 lg:w-3/4">
+                  <div className="card-body">
+                    <h5 className="card-title">sdf</h5>
+                    <p className="card-text">sd</p>
+                    <p className="card-text">
+                      <small className="text-body-secondary">
+                      </small>
+                    </p>
+                  </div>
+                </div>
+              </div>
 
       <div className="col-md-6 p-2">
         <h1 className=" mt-3 mb-3 text-2xl font-bold text-search">Fill the following details for shipping.</h1>
@@ -96,7 +116,7 @@ const Checkout = () => {
             <label htmlFor="inputAddress2" className="form-label">Address 2</label>
             <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
           </div>
-          <div>
+          {/* <div>
             <label htmlFor="inputCity" className="form-label">City</label>
             <input type="text" className="form-control" id="inputCity" />
           </div>
@@ -106,12 +126,12 @@ const Checkout = () => {
               <option selected>Choose...</option>
               <option>...</option>
             </select>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <label htmlFor="inputZip" className="form-label">Zip</label>
             <input type="text" className="form-control" id="inputZip" />
-          </div>
-          <div className="mt-5">
+          </div> */}
+          <div className="mt-5 w-full">
             <button id="button-linker" type="submit" >Proceed To Pay</button>
           </div>
         </form>
