@@ -13,7 +13,7 @@ const addToCart = async (req, res) => {
     const existCart = await Cart.findOne({ userId, productId });
 
     if (existCart) {
-      res.json({ message: "Product already exists" });
+      throw new Error(  "Product already exists");
     }
     const cartItem = new Cart({
       userId,
