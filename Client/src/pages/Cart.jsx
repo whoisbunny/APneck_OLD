@@ -36,7 +36,7 @@ const Cart = () => {
                     id={el._id}
                     name={el?.productId?.name}
                     price={el?.productId?.price}
-                    image={el?.productId?.image}
+                    image={el ?.productId?.image}
                   />
                 </>
               );
