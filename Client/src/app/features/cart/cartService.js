@@ -5,7 +5,7 @@ const getCart = async () => {
   return res.data;
 };
 const addCart = async (data) => {
-  const res = await API.axios.post(`cart`, data);
+  const res = await API.post(`cart`, data);
   return res.data;
 };
 const updateCart = async (DATA) => {

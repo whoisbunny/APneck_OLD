@@ -52,38 +52,34 @@ const Blog = () => {
 
   {
     blogs?.map((el)=>{
-      return(<>
-
-            <div className="col-12 p-5">
-              <div className="card mb-3">
-                <div className="flex gap-12 p-4">
-                  <div className="w-1/2 md:w-1/3 lg:w-1/4">
-                    <img
-                      src={el?.blogImage}
-                      alt=""
-                      className="object-cover w-full rounded-tl-lg rounded-bl-lg"
-                    />
-                  </div>
-                  <div className="w-1/2 md:w-2/3 lg:w-3/4">
-                    <div className="card-body">
-                      <h5 className="card-title">{el?.title}</h5>
-                      <p className="card-text">
-                        {el?.description}
-                      </p>
-                      <p className="card-text">
-                        <small className="text-body-secondary">
-                          {dayjs(el?.lastUpdate).format('DD/MM/YYYY')}
-                        </small>
-                      </p>
-                    </div>
+      return (
+        <>
+          <div className="col-12 p-5">
+            <div className="card mb-3">
+              <div className="flex gap-12 p-4">
+                <div className="w-1/2 md:w-1/3 lg:w-1/4">
+                  <img
+                    src={el?.blogImage}
+                    alt=""
+                    className="object-cover w-full rounded-tl-lg rounded-bl-lg"
+                  />
+                </div>
+                <div className="w-1/2 md:w-2/3 lg:w-3/4">
+                  <div className="card-body">
+                    <h5 className="card-title">{el?.title}</h5>
+                    <p className="card-text">{el?.description}</p>
+                    <p className="card-text">
+                      <small className="text-body-secondary">
+                        {dayjs(el.lastupdated).format("DD/MM/YYYY")}
+                      </small>
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-      
-      
-      
-      </>)
+          </div>
+        </>
+      );
     })
   }
             

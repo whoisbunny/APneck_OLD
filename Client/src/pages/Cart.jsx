@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { PRODUCTS, PRODUCTS1 } from "../components/ProductDummy";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart } from "../app/features/cart/cartSlice";
@@ -14,9 +13,7 @@ const Cart = () => {
     dispatch(getCart());
   }, []);
 
-
-
-  const {cart} = useSelector((state)=>state.cart)
+  const { cart } = useSelector((state) => state.cart);
   return (
     <>
       <section className="cart bg-lighter1">
@@ -32,36 +29,26 @@ const Cart = () => {
               <h5>Details</h5>
             </div>
 
-
-
-{cart?.map((el)=>{
-  return (<>
-
-  {
-    el?.items.map((e)=>{
-      return(<>
-      
-      
-      <CartItem id={e?.productId?._id} name={e?.productId?.name}price={e?.productId?.price} image={e?.productId?.image}/>
-      </>)
-    })
-  }
-  
-  
-  
-  </>)
-})}
+            {cart?.map((el) => {
+              return (
+                <>
+                  <CartItem
+                    id={el._id}
+                    name={el?.productId?.name}
+                    price={el?.productId?.price}
+                    image={el?.productId?.image}
+                  />
+                </>
+              );
+            })}
 
             <div className="p-3">
-
               <div className="w-full p-2 text-right">
                 <button onClick="submit" id="clear-cart">
                   {" "}
                   Clear Cart{" "}
                 </button>
               </div>
-
-
 
               <hr />
               <div className="row">

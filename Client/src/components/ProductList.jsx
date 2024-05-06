@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../app/features/product/productSlice";
+import { addCart } from "../app/features/cart/cartSlice";
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -11,15 +12,7 @@ const ProductList = () => {
   }, []);
 
   const { products } = useSelector((state) => state.product);
-  console.log(products);
-  const adToCart = (id) => {
-    const data = {
-      productId: id,
-      quantity: 1,
-    };
 
-    console.log(data);
-  };
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -27,7 +20,6 @@ const ProductList = () => {
           return (
             <>
               <div className="mb-6 p-4  rounded-md">
-
                 <Link className="card h-full m-auto border-r-2 max-w-[18rem] py-[12px] px-[10px] overflow-hidden rounded-[24px] ">
                   <img
                     src={product?.image}
@@ -38,7 +30,7 @@ const ProductList = () => {
                     <h5>{product.brand}</h5>
                     <p className="mb-2">{product.name}</p>
                     <p className="mb-3">{product.price} &nbsp; </p>
-                    <Link to={`/details/${product._id}`} >
+                    <Link to={`/details/${product._id}`}>
                       <p className="text-center mb-3">
                         <button
                           onClick={() => console.log(product._id)}
@@ -50,7 +42,14 @@ const ProductList = () => {
                     </Link>
                     <div className="flex items-center mb-4">
                       <button
-                        onClick={() => adToCart(product._id)}
+                        onClick={() =>
+                          dispatch(addCart({
+                            productId: product?._id,
+                            quantity: 1,
+                            price: product.price,
+                          })
+                        )
+                        }
                         className="bg-primary2 text-white px-2 py-3 rounded-xl border m-auto  "
                       >
                         Add To Cart
